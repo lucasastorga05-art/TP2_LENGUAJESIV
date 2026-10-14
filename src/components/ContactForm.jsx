@@ -84,18 +84,19 @@ function ContactForm() {
         <p>Completá tus datos y nos pondremos en contacto con vos.</p>
       </div>
 
-      <form
-        className="contact-form"
-        action="https://formsubmit.co/lucasastorga05@gmail.com"
-        method="POST"
-        noValidate
-        onSubmit={handleSubmit}
-      >
-        <input type="hidden" name="_subject" value="Nuevo mensaje desde el sitio TP2" />
-        <input type="hidden" name="_template" value="table" />
-        <input type="text" name="_honey" className="form-honeypot" tabIndex="-1" autoComplete="off" />
+      <div className="contact-interactive-grid">
+        <form
+          className="contact-form"
+          action="https://formsubmit.co/lucasastorga05@gmail.com"
+          method="POST"
+          noValidate
+          onSubmit={handleSubmit}
+        >
+          <input type="hidden" name="_subject" value="Nuevo mensaje desde el sitio TP3" />
+          <input type="hidden" name="_template" value="table" />
+          <input type="text" name="_honey" className="form-honeypot" tabIndex="-1" autoComplete="off" aria-hidden="true" />
 
-        <div className="contact-form-fields">
+          <div className="contact-form-fields">
           <div className="form-field">
             <label htmlFor="nombre">Nombre</label>
             <input
@@ -164,12 +165,29 @@ function ContactForm() {
               </span>
             </div>
           </div>
-        </div>
+          </div>
 
-        <button className="contact-submit" type="submit">
-          Enviar mensaje <span aria-hidden="true">↗</span>
-        </button>
-      </form>
+          <button className="contact-submit" type="submit">
+            Enviar mensaje <span aria-hidden="true">↗</span>
+          </button>
+        </form>
+
+        <aside className="contact-map-panel" aria-labelledby="map-title">
+          <div>
+            <span className="contact-form-kicker">Ubicación</span>
+            <h3 id="map-title">Salta, Argentina</h3>
+          </div>
+          <iframe
+            title="Mapa de ubicación en Salta, Argentina"
+            src="https://www.openstreetmap.org/export/embed.html?bbox=-65.428%2C-24.798%2C-65.397%2C-24.777&layer=mapnik&marker=-24.788%2C-65.412"
+            loading="lazy"
+            referrerPolicy="no-referrer"
+          />
+          <a href="https://www.openstreetmap.org/?mlat=-24.788&mlon=-65.412#map=15/-24.788/-65.412" target="_blank" rel="noreferrer">
+            Abrir mapa
+          </a>
+        </aside>
+      </div>
     </section>
   )
 }

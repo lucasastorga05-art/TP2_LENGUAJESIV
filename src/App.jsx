@@ -4,6 +4,8 @@ import NavBar from './components/NavBar'
 import SectionTitle from './components/SectionTitle'
 import PageCard from './components/PageCard'
 import ContactForm from './components/ContactForm'
+import BreakingBadCast from './components/BreakingBadCast'
+import ServicesGallery from './components/ServicesGallery'
 
 const pages = [
   {
@@ -12,10 +14,6 @@ const pages = [
     label: 'Inicio',
     title: 'Inicio',
     subtitle: 'Bienvenido a nuestra página principal, donde presentamos la propuesta del sitio.',
-    cards: [
-      { title: 'Propósito', description: 'Este sitio presenta una estructura básica de navegación y diseño en React.' },
-      { title: 'Objetivo', description: 'Demostrar el uso de páginas estáticas con un menú de navegación funcional.' },
-    ],
   },
   {
     id: 'servicios',
@@ -23,10 +21,6 @@ const pages = [
     label: 'Servicios',
     title: 'Servicios',
     subtitle: 'Una vista con los servicios principales que ofrece la empresa o proyecto.',
-    cards: [
-      { title: 'Diseño web', description: 'Creación de interfaces modernas y adaptables a distintos dispositivos.' },
-      { title: 'Soporte digital', description: 'Acompañamiento técnico para mantener la presencia online actualizada.' },
-    ],
   },
   {
     id: 'contacto',
@@ -46,17 +40,18 @@ function PageLayout({ page }) {
     <main className="page-content">
       <SectionTitle title={page.title} subtitle={page.subtitle} />
 
-      <section className="card-grid">
-        {page.cards.map((card) => (
-          <PageCard
-            key={card.title}
-            title={card.title}
-            description={card.description}
-          />
-        ))}
-      </section>
-
-      {page.id === 'contacto' && <ContactForm />}
+      {page.id === 'inicio' && <BreakingBadCast />}
+      {page.id === 'servicios' && <ServicesGallery />}
+      {page.id === 'contacto' && (
+        <>
+          <section className="card-grid">
+            {page.cards.map((card) => (
+              <PageCard key={card.title} title={card.title} description={card.description} />
+            ))}
+          </section>
+          <ContactForm />
+        </>
+      )}
     </main>
   )
 }
