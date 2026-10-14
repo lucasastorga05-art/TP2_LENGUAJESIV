@@ -3,6 +3,7 @@ import { Navigate, Route, Routes } from 'react-router-dom'
 import NavBar from './components/NavBar'
 import SectionTitle from './components/SectionTitle'
 import PageCard from './components/PageCard'
+import ContactForm from './components/ContactForm'
 
 const pages = [
   {
@@ -34,8 +35,8 @@ const pages = [
     title: 'Contacto',
     subtitle: 'Espacio para brindar información de contacto y comunicación con el equipo.',
     cards: [
-      { title: 'Email', description: 'contacto@ejemplo.com' },
-      { title: 'Teléfono', description: '+54 9 387 123-4567' },
+      { title: 'Email', description: 'lucasastorga05@gmail.com' },
+      { title: 'Teléfono', description: '3876631210' },
     ],
   },
 ]
@@ -54,6 +55,8 @@ function PageLayout({ page }) {
           />
         ))}
       </section>
+
+      {page.id === 'contacto' && <ContactForm />}
     </main>
   )
 }
@@ -63,8 +66,8 @@ function App() {
     <div className="app-shell">
       <header className="topbar">
         <div className="brand-block">
-          <span className="brand-mark">UCAS</span>
-          <p>Lenguaje IV</p>
+          <span className="brand-mark">UCASAL</span>
+          <p>Lenguajes IV</p>
         </div>
 
         <NavBar items={pages} />
